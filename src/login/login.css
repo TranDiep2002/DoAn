@@ -1,0 +1,23 @@
+.divider:after,
+.divider:before {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: #eee;
+}
+.custom-form {
+    background-color: rgb(242, 244, 245);
+    border: 1px solid #ccc;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #f8f9fa; /* This line seems redundant as it's overridden */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3)
+}
+.h-custom {
+  height: calc(100% - 73px);
+}
+@media (max-width: 450px) {
+  .h-custom {
+  height: 100%;
+  }
+}
