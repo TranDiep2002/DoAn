@@ -27,16 +27,16 @@ export const leadsSlice = createSlice({
     },
 
     extraReducers: {
-		// [getLeadsContent.pending]: state => {
-		// 	state.isLoading = true
-		// },
-		// [getLeadsContent.fulfilled]: (state, action) => {
-		// 	state.leads = action.payload.data
-		// 	state.isLoading = false
-		// },
-		// [getLeadsContent.rejected]: state => {
-		// 	state.isLoading = false
-		// },
+		[getLeadsContent.pending]: state => {
+			state.isLoading = true
+		},
+		[getLeadsContent.fulfilled]: (state, action) => {
+			state.leads = action.payload.data
+			state.isLoading = false
+		},
+		[getLeadsContent.rejected]: state => {
+			state.isLoading = false
+		},
         setCurrentEditId: (state, action) => { // Thêm reducer này
             state.currentEditId = action.payload;
         }

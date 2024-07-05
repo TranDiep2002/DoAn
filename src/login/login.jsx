@@ -3,6 +3,7 @@ import {MDBContainer, MDBCol, MDBRow, MDBBtn, MDBIcon, MDBInput, MDBCheckbox } f
 import authAPI from '../route/authAPI';
 import { useNavigate } from 'react-router-dom';
 import './login.css'
+import ErrorText from '../components/Typography/ErrorText'
 import 'mdb-react-ui-kit/dist/css/mdb.min.css';
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import 'react-notifications/lib/notifications.css';
@@ -10,6 +11,7 @@ const Login = () => {
     const [maUser,setMaUser] = useState('');
     const [passWord,setPassWord] = useState('');
     const navigate = useNavigate();
+    const [errorMessage, setErrorMessage] = useState("")
 
     const handelMaUserChange =(event)=>{
         setMaUser(event.target.value);
@@ -25,12 +27,17 @@ const Login = () => {
         };
         try {
             const response= await authAPI.login(body);
+            if( response.data === "không tìm thấy tài khoản để đăng nhập"){
+              setErrorMessage("Sai tên đăng nhập hoặc mật khẩu!")
+            }else{
             localStorage.setItem("token", JSON.stringify(response));
+            localStorage.setItem("maUser", JSON.stringify(maUser));
             navigate("/app")
             window.location.reload();
             console.log("token la :",response.data)
+            }
         } catch (error) {
-            console.log(error)
+            console.log("loi khi dang nhap:",error)
         }
     }
 
@@ -53,7 +60,7 @@ const Login = () => {
             <MDBCheckbox name='flexCheck' value='' id='flexCheckDefault' label='Remember me' />
             <a href="!#">Forgot password?</a>
           </div>
-
+          <ErrorText styleClass="mt-16">{errorMessage}</ErrorText>
           <div className='text-center text-md-start mt-4 pt-2'>
             <MDBBtn className="mb-0 px-5" size='lg' type='button' onClick={handelLogin} style={{marginLeft:'150px'}}>Login</MDBBtn>
             <p className="small fw-bold mt-2 pt-1 mb-2">Don't have an account? Please contact your advisor or academic staff member for assistance!</p>

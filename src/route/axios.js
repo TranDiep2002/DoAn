@@ -52,6 +52,9 @@ api.interceptors.response.use(
         return axios(originalRequest); // Gửi lại yêu cầu gốc với token mới
       }
     }
+    // if( error.response?.data===''){
+    //    window.location.href = '/login'
+    // }
     return Promise.reject(error);
   }
 );
