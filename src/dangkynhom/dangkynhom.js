@@ -15,9 +15,9 @@ const DangKyNhom = () => {
 
     const maSV1 = JSON.parse(localStorage.getItem("maUser"));
     const[vaiTroSV1, setVaiTroSV1] = useState('');
-    const [maSV2,setMaSinhVien] = useState(''); // sinh viên được thêm vào nhóm
+    const [maSV2,setMaSinhVien] = useState(dsSinhVienGroup[0]); // sinh viên được thêm vào nhóm
     const[vaiTroSV2,setVaiTroSV2] = useState('');
-    const [maGV, setMaGV] = useState('');// mã giảng viên HD
+    const [maGV, setMaGV] = useState(dsGiangVienGroup[0]);// mã giảng viên HD
     const [tenDeTai,setTenDeTai] = useState('');
     const [moTa,setMotaDeTai] = useState('');
     const[nganh, setNganh] = useState('');

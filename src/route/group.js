@@ -24,6 +24,9 @@ const groupAPI =  {
   getallGroup(tenChuyenMon){
     console.log("aa",tenChuyenMon)
     return api.get(`/getallDangKy/${tenChuyenMon}`,tenChuyenMon)
+  },
+  updateTrangThaibyGiangVienDeTai(MaGiangVien,TenDeTai){
+    return api.put(`updateTrangThaibyGiangVienDeTai/${MaGiangVien}/${TenDeTai}`)
   }
   
 }

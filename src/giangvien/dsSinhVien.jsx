@@ -177,6 +177,7 @@ const DSGiangVien = () => {
                                 <th>Vai Trò</th>
                                 <th>Học vị</th>
                                 <th>Đơn vị công tác</th>
+                                <th>Bộ Môn</th>
                                 <th></th>
                             </tr>
                         </thead>
@@ -202,6 +203,7 @@ const DSGiangVien = () => {
                                             <td>{l.vaiTro}</td>
                                             <td>{l.hocVi}</td>
                                             <td>{l.donViCongTac}</td>
+                                            <td>{l.tenBoMon}</td>
                                             <td>
                                                 { isGiaoVu&& (
                                                 <button className="btn btn-square btn-ghost" onClick={() => confirmDelete(l.id)}>
