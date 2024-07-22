@@ -37,7 +37,7 @@
 //   export default TitleCard
 import Subtitle from "../Typography/Subtitle";
 
-function TitleCard({ title, children, topMargin, TopSideButtons, TopSideTimKiem }) {
+function TitleCard({ title, children, topMargin, TopSideButtons, TopSideTimKiem , ImportExcel }) {
     return (
         <div className={"card w-full p-6 bg-base-100 shadow-xl " + (topMargin || "mt-6")}>
 
@@ -49,6 +49,7 @@ function TitleCard({ title, children, topMargin, TopSideButtons, TopSideTimKiem 
                 <div className="flex items-center space-x-4">
                     {TopSideButtons && <div className="inline-block">{TopSideButtons}</div>}
                     {TopSideTimKiem && <div className="inline-block">{TopSideTimKiem}</div>}
+                    {ImportExcel && <div className="inline-block">{ImportExcel}</div>}
                 </div>
             </Subtitle>
 

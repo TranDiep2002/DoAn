@@ -12,7 +12,7 @@ const getTokenFromLocal = () => {
   var s = localStorage.getItem("token");
   if (s) {
     var res = JSON.parse(s);
-    var token = res?.data; // Sử dụng optional chaining để tránh lỗi nếu res không tồn tại
+    var token = res; // Sử dụng optional chaining để tránh lỗi nếu res không tồn tại
     console.log("token là:", token);
     return token;
   }

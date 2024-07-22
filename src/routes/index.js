@@ -1,6 +1,7 @@
 // All components mapping with path for internal routes
 
 import { Component, lazy } from 'react'
+import PhanCongGVChamDC from '../nopDeCuong/phanCongGVCham'
 
 
 const DSSinhVien = lazy(() => import('../page/DSSinhVien'))
@@ -12,6 +13,11 @@ const DanhSachBoMon = lazy(()=> import('../page/DanhSachBoMon'))
 const danhsachChuyenMon = lazy(()=> import('../page/DSChuyenMon'))
 const setNamHocHocKy = lazy(()=>import('../page/SetNamHocHocKy'))
 const DSTaiKhoan = lazy(()=>import('../page/DSTaiKhoan'))
+const DSNhomGiaoVu =  lazy(()=>import('../page/DSNhomGiaoVu'))
+const SinhVienNopDC = lazy(()=>import('../page/SinhVienNopDC'))
+const SetThongBao = lazy(()=>import('../page/ThongBao'))
+const DSDeCuong = lazy(()=>import('../page/DSDeCuong'))
+const PCGVChamDC= lazy(()=>import('../page/PhanCongGVChamDC'))
 const routes = [
   {
     path: '/dssinhvien', // the url
@@ -46,8 +52,29 @@ const routes = [
     component:setNamHocHocKy
   },
   {
+    path:'/setThongBao',
+    component:SetThongBao
+  },
+
+  {
     path:'/dstaikhoan',
     component:DSTaiKhoan
+  },
+  {
+    path:'/dsNhomGiaoVu',
+    component:DSNhomGiaoVu
+  },
+  {
+    path:'/sinhVienNopDC',
+    component:SinhVienNopDC
+  },
+  {
+    path:'/danhsachDeCuong',
+    component:DSDeCuong
+  },
+  {
+    path:'/phancongGVChamDC',
+    component:PCGVChamDC
   }
 ]
 

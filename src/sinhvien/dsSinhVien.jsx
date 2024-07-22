@@ -12,6 +12,7 @@ import 'react-confirm-alert/src/react-confirm-alert.css';
 import FunnelIcon from '@heroicons/react/24/outline/FunnelIcon'
 import XMarkIcon from '@heroicons/react/24/outline/XMarkIcon'
 import SearchBar from "../components/Input/SearchBar"
+import '../dangkynhom/dangkynhom.css'
 
  const TopSideButtons = () => {
     const dispatch = useDispatch();
@@ -27,6 +28,19 @@ import SearchBar from "../components/Input/SearchBar"
     );
 };
 
+const ImportExcel = () => {
+    const dispatch = useDispatch();
+
+    const openAddNewLeadModal = () => {
+        dispatch(openModal({ title: "Thêm file danh sách sinh viên", bodyType: MODAL_BODY_TYPES.IMPORT_SINHVIEN }));
+    };
+
+    return (
+        <div className="inline-block float-right">
+            <button className="btn px-6 btn-sm normal-case btn-info" onClick={() => openAddNewLeadModal()}>Add File</button>
+        </div>
+    );
+};
 
 const TopSideTimKiem = ({removeFilter, applyFilter, applySearch}) => {
 
@@ -164,7 +178,7 @@ const DSSinhVien = () => {
 
     return (
         <div style={{ width: '1000px' }}>
-            <TitleCard title="Danh sách sinh viên " topMargin="mt-2" TopSideTimKiem={<TopSideTimKiem applySearch={applySearch} applyFilter={applyFilter} removeFilter={removeFilter}/>} TopSideButtons={isGiaoVu&&<TopSideButtons />} >
+            <TitleCard title="Danh sách sinh viên " topMargin="mt-2" TopSideTimKiem={<TopSideTimKiem applySearch={applySearch} applyFilter={applyFilter} removeFilter={removeFilter}/>} ImportExcel={isGiaoVu&&<ImportExcel />} TopSideButtons={isGiaoVu&&<TopSideButtons />} >
                 <div className="overflow-x-auto w-full">
                     <table className="table w-full">
                         <thead>
@@ -174,7 +188,7 @@ const DSSinhVien = () => {
                                 <th>Email</th>
                                 <th>Lớp hành chính</th>
                                 <th>Chuyên ngành</th>
-                                <th></th>
+                                {isGiaoVu && ( <th></th>)}
                             </tr>
                         </thead>
                         <tbody>
@@ -198,22 +212,21 @@ const DSSinhVien = () => {
                                             <td>{l.email}</td>
                                             <td>{l.lopHanhChinh}</td>
                                             <td>{l.nganh}</td>
-                                            <td>
                                             {isGiaoVu && (
+                                                <td>
                                             <button className="btn btn-square btn-ghost" onClick={() => confirmDelete(l.id)}>
                                                 <TrashIcon className="w-5" />
                                             </button>
-                                        )}
-                                            </td>
-                                            <td>
-                                            {isGiaoVu && (
+                                            </td>)}
+                                            {isGiaoVu && ( <td>
+                                           
                                                 <button className="btn btn-square btn-ghost" onClick={() => editSinhVien(l.id)}>
                                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-5">
                                                         <path strokeLinecap="round" strokeLinejoin="round" d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L10.582 16.07a4.5 4.5 0 01-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 011.13-1.897l8.932-8.931zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0115.75 21H5.25A2.25 2.25 0 013 18.75V8.25A2.25 2.25 0 015.25 6H10" />
                                                     </svg>
                                                 </button>
-                                            )}
-                                            </td>
+                                            
+                                            </td>)}
                                         </tr>
                                     );
                                 })

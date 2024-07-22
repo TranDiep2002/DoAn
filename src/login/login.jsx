@@ -30,7 +30,7 @@ const Login = () => {
             if( response.data === "không tìm thấy tài khoản để đăng nhập"){
               setErrorMessage("Sai tên đăng nhập hoặc mật khẩu!")
             }else{
-            localStorage.setItem("token", JSON.stringify(response));
+            localStorage.setItem("token", JSON.stringify(response.data));
             localStorage.setItem("maUser", JSON.stringify(maUser));
             navigate("/app")
             window.location.reload();

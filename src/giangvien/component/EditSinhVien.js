@@ -41,6 +41,9 @@ function EditGiangVien({ id, closeModal }) {
     }, [id]);
 
     const saveEditSinhVien = async () => {
+        if (!validateForm()) {
+            return;
+        }
         try {
              const response =await giangVienAPI.updateGiangVien(giangvien);
              console.log("update giảng viên thành công", response);

@@ -1,9 +1,11 @@
 
+import { relativeTimeRounding } from 'moment';
 import api from './axios'
 const groupAPI =  {
   // lấy ra những sinh viên chưa có nhóm
-  getSinhVienGroup(){
-    return api.get('/getSinhVienbyKyandNamHoc')
+  getSinhVienGroup(maSV){
+    console.log("Mã sinh viên la:",maSV);
+    return api.get(`/getSinhVienbyKyandNamHoc/${maSV}`,maSV)
   },
   getGiangVienGroup(tenKy,namHoc){
     return api.get('/getGiangVienbySoLuongSinhVien')
@@ -25,9 +27,31 @@ const groupAPI =  {
     console.log("aa",tenChuyenMon)
     return api.get(`/getallDangKy/${tenChuyenMon}`,tenChuyenMon)
   },
-  updateTrangThaibyGiangVienDeTai(MaGiangVien,TenDeTai){
-    return api.put(`updateTrangThaibyGiangVienDeTai/${MaGiangVien}/${TenDeTai}`)
+  // update trạng thái duyệt
+  updateTrangThaibyGiangVienDeTai(MaGiangVien,TenDeTai,moTa){
+    return api.put(`/updateTrangThaibyGiangVienDeTai/${MaGiangVien}/${TenDeTai}/${moTa}`)
+  },
+  // update trạng thái hủy
+  updateTrangThaiHuybyGiangVienDeTai(MaGiangVien,TenDeTai,moTa){
+    return api.put(`/updateTrangThaiHuybyGiangVienDeTai/${MaGiangVien}/${TenDeTai}/${moTa}`)
+  },
+  // cập nhật ghi chú
+  updateGhiChu(tenDeTai,mota,ghichu){
+    return api.put(`/updateGhiChu/${tenDeTai}/${mota}/${ghichu}`)
+  },
+  getTrangThaiDangKy(MaGiangVien,TenDeTai,moTaDeTai){
+    return api.get(`getTrangThaiDangKy/${MaGiangVien}/${TenDeTai}/${moTaDeTai}`)
+  },
+  getallDangKyGiaoVu(){
+    return api.get('getallDangKyGiaoVu')
+  },
+  getDangKybyTenDeTaiMoTaKyHoc(tenDeTai,moTaDeTai){
+    return api.get(`getDangKybyTenDeTaiMoTaKyHoc/${tenDeTai}/${moTaDeTai}`)
+  },
+  updateGiangVienHD(body){
+    return api.put('/updateGiangVienHD',body);
   }
+
   
 }
 

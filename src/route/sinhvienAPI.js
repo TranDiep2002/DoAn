@@ -22,6 +22,13 @@ const sinhvienAPI =  {
   },
   getSinhVienbyChuyenNganh(nganh){
     return api.get(`getSinhVienbyChuyenNganh/${nganh}`,nganh)
+  },
+  uploadFileSinhVien: (formData, sheetName) => {
+    return api.post(`uploadFileSinhVien/${sheetName}`, formData, {
+      headers: {
+        'Content-Type': 'multipart/form-data'
+      }
+    });
   }
 }
 

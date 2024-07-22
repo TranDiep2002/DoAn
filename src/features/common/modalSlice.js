@@ -8,7 +8,8 @@ export const modalSlice = createSlice({
         bodyType : "",   // modal content management
         size : "",   // modal content management
         extraObject : {},   
-        extraProps: {} // Thêm dòng này
+        extraProps: {}, // Thêm dòng này
+        extraTenDeTai:{}
     },
     reducers: {
 
@@ -20,6 +21,7 @@ export const modalSlice = createSlice({
             state.size = size || 'md'
             state.extraObject = extraObject
             state.extraProps = action.payload.extraProps || {}; // Thêm dòng này
+            state.extraTenDeTai = action.payload.extraTenDeTai||{};
         },
 
         closeModal: (state, action) => {

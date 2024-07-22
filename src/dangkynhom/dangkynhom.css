@@ -1,0 +1,50 @@
+.table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.table th, .table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+.table th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #f2f2f2;
+    color: black;
+}
+.remove-button {
+   color: rgb(238, 45, 45); 
+    border: none;
+    cursor: pointer;
+    padding: 2px 8px;
+    margin-left: 5px;
+
+}
+.custom-listbox .p-listbox-header {
+    background-color: #f0f0f0;
+    padding: 5px;
+    border-bottom: 1px solid #fbf0f0;
+}
+
+.custom-listbox .p-listbox-filter-container {
+    display: flex;
+    align-items: center;
+    position: relative; /* Ensure the icon is positioned relative to this container */
+}
+
+.custom-listbox .p-inputtext {
+    flex-grow: 1;
+    margin-right: 10px; /* Add space for the icon */
+    border-radius: 5px;
+    padding: 5px 30px 5px 10px; /* Adjust padding to accommodate the icon */
+}
+
+.custom-listbox .p-listbox-filter-icon {
+    color: #454242;
+    cursor: pointer;
+    position: absolute; /* Position the icon inside the container */
+    right: 20px; /* Adjust position to the right inside the input field */
+}

@@ -11,12 +11,16 @@ import AddNewBoMon from '../bomon/component/insertBoMon'
 import EditBoMon from '../bomon/component/editBoMon'
 import AddNewChuyenMon from '../chuyenmon/components/addNewChuyenMon'
 import EditChuyenMon from '../chuyenmon/components/editChuyenMon'
+import AddFileSinhVien from '../sinhvien/component/AddFileSinhVien'
+import EditDangKy from '../dangkynhom/component/editDangKy'
+import EditGhiChu from '../dangkynhom/component/themGhiChu'
+import EditGhiChuDC from '../nopDeCuong/component/themGhiChu'
 
 
 function ModalLayout(){
 
 
-    const {isOpen, bodyType, size, extraObject, title,extraProps} = useSelector(state => state.modal)
+    const {isOpen, bodyType, size, extraObject, title,extraProps, extraTenDeTai} = useSelector(state => state.modal)
     const dispatch = useDispatch()
 
     const close = (e) => {
@@ -47,6 +51,11 @@ function ModalLayout(){
                              [MODAL_BODY_TYPES.BOMON_EDIT]:<EditBoMon {...extraProps} closeModal={close} extraObject={extraObject}/>,
                              [MODAL_BODY_TYPES.CHUYENMON_ADD_NEW]:<AddNewChuyenMon closeModal={close} extraObject={extraObject}/>,
                              [MODAL_BODY_TYPES.CHUYENMON_EDIT]:<EditChuyenMon {...extraProps} closeModal={close} extraObject={extraObject}/>,
+                             [MODAL_BODY_TYPES.IMPORT_SINHVIEN]:<AddFileSinhVien closeModal={close} extraObject={extraObject}/>,
+                             [MODAL_BODY_TYPES.DANGKY_EDIT]:<EditDangKy {...extraProps} {...extraTenDeTai} closeModal={close} extraObject={extraObject}/>,
+                             [MODAL_BODY_TYPES.GHICHU_ADD]:<EditGhiChu {...extraProps} {...extraTenDeTai} closeModal={close} extraObject={extraObject}/>,
+                             [MODAL_BODY_TYPES.GHICHUDC_ADD]:<EditGhiChuDC {...extraProps} {...extraTenDeTai} closeModal={close} extraObject={extraObject}/>,
+
                              [MODAL_BODY_TYPES.CONFIRMATION] : <ConfirmationModalBody extraObject={extraObject} closeModal={close}/>,
                              [MODAL_BODY_TYPES.DEFAULT] : <div></div>
                     }[bodyType]
