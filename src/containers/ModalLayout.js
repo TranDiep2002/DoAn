@@ -15,6 +15,8 @@ import AddFileSinhVien from '../sinhvien/component/AddFileSinhVien'
 import EditDangKy from '../dangkynhom/component/editDangKy'
 import EditGhiChu from '../dangkynhom/component/themGhiChu'
 import EditGhiChuDC from '../nopDeCuong/component/themGhiChu'
+import EditTaiKhoan from '../taiKhoan/component/editTaiKhoan'
+import AddNewTaiKhoan from '../taiKhoan/component/addNewTaiKhoan'
 
 
 function ModalLayout(){
@@ -55,7 +57,8 @@ function ModalLayout(){
                              [MODAL_BODY_TYPES.DANGKY_EDIT]:<EditDangKy {...extraProps} {...extraTenDeTai} closeModal={close} extraObject={extraObject}/>,
                              [MODAL_BODY_TYPES.GHICHU_ADD]:<EditGhiChu {...extraProps} {...extraTenDeTai} closeModal={close} extraObject={extraObject}/>,
                              [MODAL_BODY_TYPES.GHICHUDC_ADD]:<EditGhiChuDC {...extraProps} {...extraTenDeTai} closeModal={close} extraObject={extraObject}/>,
-
+                             [MODAL_BODY_TYPES.TAIKHOAN_ADD]:<AddNewTaiKhoan  closeModal={close} extraObject={extraObject}/>,
+                             [MODAL_BODY_TYPES.TAIKHOAN_EDIT]:<EditTaiKhoan {...extraProps} closeModal={close} extraObject={extraObject}/>,
                              [MODAL_BODY_TYPES.CONFIRMATION] : <ConfirmationModalBody extraObject={extraObject} closeModal={close}/>,
                              [MODAL_BODY_TYPES.DEFAULT] : <div></div>
                     }[bodyType]

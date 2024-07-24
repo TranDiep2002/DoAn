@@ -17,6 +17,9 @@ const TaiKhoanAPI = {
   },
   getTaiKhoanbyLoaiTaiKhoan(loaiTaiKhoan){
     return api.get(`getTaiKhoanbyLoaiTaiKhoan/${loaiTaiKhoan}`,loaiTaiKhoan)
+  },
+  getTaiKhoanbyId(id){
+    return api.get(`getTaiKhoanbyId/${id}`)
   }
 
 }

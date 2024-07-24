@@ -36,6 +36,9 @@ function EditSinhVien({ id, closeModal }) {
     }, [id]);
 
     const saveEditSinhVien = async () => {
+         if (!validateForm()) {
+            return;
+        }
         try {
              await sinhvienAPI.updateSinhVien(sinhvien);
              dispatch(showNotification({ message: "update sinh viên thành công!", status: 1 }));
@@ -56,7 +59,7 @@ function EditSinhVien({ id, closeModal }) {
     };
 
     const validateForm = () => {
-        if (!sinhvien.maUser || !sinhvien.fullName || !sinhvien.ngaySinh || !sinhvien.gioiTinh || !sinhvien.passWord || !sinhvien.email ) {
+        if (!sinhvien.hoTen || !sinhvien.maSV || !sinhvien.gioiTinh||!sinhvien.nganh || !sinhvien.lopHanhChinh || !sinhvien.email ) {
             setErrorMessage("Vui lòng điền đầy đủ các trường.");
             return false;
         }

@@ -18,6 +18,7 @@ const SinhVienNopDC = lazy(()=>import('../page/SinhVienNopDC'))
 const SetThongBao = lazy(()=>import('../page/ThongBao'))
 const DSDeCuong = lazy(()=>import('../page/DSDeCuong'))
 const PCGVChamDC= lazy(()=>import('../page/PhanCongGVChamDC'))
+const ThongTinCaNhanSV= lazy(()=>import('../page/ThongTinCaNhanSv'))
 const routes = [
   {
     path: '/dssinhvien', // the url
@@ -75,6 +76,10 @@ const routes = [
   {
     path:'/phancongGVChamDC',
     component:PCGVChamDC
+  },
+  {
+    path:'/thongtincanhanSV',
+    component:ThongTinCaNhanSV
   }
 ]
 

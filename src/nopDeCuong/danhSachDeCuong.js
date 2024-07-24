@@ -181,7 +181,7 @@ const DanhSachDeCuong = () => {
                                             )}
                                         
                                             {!approvalStatus[decuong.tenDeTai] && (
-                                                <button className='btn btn-warning' style={{ width: '100px',marginLeft:'5px' }} onClick={() => updateTrangThaiHuy( decuong.tenDeTai, decuong.moTa)}>Hủy</button>
+                                                <button className='btn btn-warning' style={{ width: '100px',marginLeft:'5px' }} onClick={() => updateTrangThaiHuy( decuong.tenDeTai, decuong.moTa)}>Không duyệt</button>
                                             )}
                                             {
                                                 !approvalStatus[decuong.tenDeTai] && (

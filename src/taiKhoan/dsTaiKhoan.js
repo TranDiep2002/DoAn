@@ -18,7 +18,7 @@ import TaiKhoanAPI from '../route/taiKhoanAPI'
     const dispatch = useDispatch();
 
     const openAddNewLeadModal = () => {
-        dispatch(openModal({ title: "Thêm sinh viên", bodyType: MODAL_BODY_TYPES.STUDENT_ADD_NEW }));
+        dispatch(openModal({ title: "Thêm tài khoản", bodyType: MODAL_BODY_TYPES.TAIKHOAN_ADD }));
     };
 
     return (
@@ -58,7 +58,7 @@ const TopSideTimKiem = ({removeFilter, applyFilter, applySearch}) => {
 
     return(
         <div className="inline-block float-right">
-            <SearchBar searchText={searchText} styleClass="mr-4" setSearchText={setSearchText}/>
+            <SearchBar searchText={searchText} placeholderText="mã người dùng" styleClass="mr-4" setSearchText={setSearchText}/>
             {filterParam !== "" && <button onClick={() => removeAppliedFilter()} className="btn btn-xs mr-2 btn-active btn-ghost normal-case">{filterParam}<XMarkIcon className="w-4 ml-2"/></button>}
             <div className="dropdown dropdown-bottom dropdown-end">
                 <label tabIndex={0} className="btn btn-sm btn-outline"><FunnelIcon className="w-5 mr-2"/>Filter</label>
@@ -149,7 +149,7 @@ const DSTaiKhoan = () => {
 
     const editSinhVien = (id) => {
         dispatch(setCurrentEditId(id)); // Lưu id vào Redux store
-        dispatch(openModal({ title: "Edit sinh viên", bodyType: MODAL_BODY_TYPES.STUDENT_EDIT, extraProps: { id } }));
+        dispatch(openModal({ title: "Chỉnh sửa tài khoản", bodyType: MODAL_BODY_TYPES.TAIKHOAN_EDIT, extraProps: { id } }));
     };
 
     return (

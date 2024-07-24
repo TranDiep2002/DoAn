@@ -29,6 +29,9 @@ const sinhvienAPI =  {
         'Content-Type': 'multipart/form-data'
       }
     });
+  },
+  getSinhVienbyMaSV(maSV){
+    return api.get(`getSinhVienbyMaSV/${maSV}`)
   }
 }
 

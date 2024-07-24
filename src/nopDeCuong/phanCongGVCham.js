@@ -60,12 +60,21 @@ const PhanCongGVChamDC = () => {
         label: `${gv.hoTen} - ${gv.maGV}`
     }));
 
+    const DeTaiWithLabels = dsDeTai.map(deTai=>({
+        ...deTai,
+         label: `${deTai.tenDeTai} - ${deTai.moTa}`
+    }))
+
     const removeGVCham = () => {
         setMaGVCham("");
     };
+    const removeDeTaiChon =(dt)=>{
+        setDSDeTaiChon(dsDeTaiChon.filter(item => item.moTa !== dt.moTa));
+    }
 
     useEffect(() => {
         getAllGiangVien();
+        getDSDeTaiChuaPC();
     }, []);
 
     return (
@@ -109,6 +118,40 @@ const PhanCongGVChamDC = () => {
                                             )}
                                         </div>
                                     </td>
+                                </tr>
+                                <tr>
+                                        <td>Danh sách đề tài</td>
+                                        <td>Danh sách đề tài được chọn</td>
+                                </tr>
+                                <tr>
+                                <td>
+                                        <div className="custom-listbox">
+                                            <ListBox
+                                                filter
+                                                multiple
+                                                value={dsDeTaiChon}
+                                                onChange={handelChangeDsDeTai}
+                                                options={DeTaiWithLabels}
+                                                optionLabel="label"
+                                                className="w-full md:w-14rem"
+                                                listStyle={{ maxHeight: '100px' }}
+                                            />
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div>
+                                        {dsDeTaiChon && dsDeTaiChon.length > 0 ? (
+                                                dsDeTaiChon.map((dt,index) => (
+                                                    <div style={{ display: 'flex', justifyContent: 'space-between',marginBottom:'5px' }}>
+                                                    <p key={dt.tenDeTai}>{dt.tenDeTai}-{dt.moTa}</p><button onClick={() => removeDeTaiChon(dt)} className='remove-button'>  <TrashIcon className="w-5" /></button>
+                                                    </div>
+                                                ))
+                                            ) : (
+                                                <p>Không có sinh viên nào được chọn</p>
+                                            )}
+                                        </div>
+                                    </td>
+
                                 </tr>
                             </tbody>
                         </table>

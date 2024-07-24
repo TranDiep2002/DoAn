@@ -71,7 +71,7 @@ const TopSideTimKiem = ({removeFilter, applyFilter, applySearch}) => {
 
     return(
         <div className="inline-block float-right">
-            <SearchBar searchText={searchText} styleClass="mr-4" setSearchText={setSearchText}/>
+            <SearchBar searchText={searchText} placeholderText="Tên sinh viên" styleClass="mr-4" setSearchText={setSearchText}/>
             {filterParam != "" && <button onClick={() => removeAppliedFilter()} className="btn btn-xs mr-2 btn-active btn-ghost normal-case">{filterParam}<XMarkIcon className="w-4 ml-2"/></button>}
             <div className="dropdown dropdown-bottom dropdown-end">
                 <label tabIndex={0} className="btn btn-sm btn-outline"><FunnelIcon className="w-5 mr-2"/>Filter</label>

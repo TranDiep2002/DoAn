@@ -29,6 +29,7 @@ const DropFileInput = props => {
 
     const [hanChot,setHanChot] = useState("");
     const [thoiGianConLai,setThoiGianConLai] = useState("");
+    const [thoigianNop,setThoiGianNop] = useState("");
     const maUser = JSON.parse(localStorage.getItem("maUser"));
 
     const onDragEnter = () => wrapperRef.current.classList.add('dragover');
@@ -68,6 +69,16 @@ const DropFileInput = props => {
         props.onFileChange(null);
     };
 
+    // lấy thời gian nộp
+    const getThoiGianNop = async()=>{
+        try {
+            const response = await DeCuongAPI.getThoiGianNop(maUser);
+            console.log("Thời gian nộp:", response)
+            setThoiGianNop(response.data);
+        } catch (error) {
+            console.log("Lấy thoiwf gian nộp lỗi");
+        }
+    }
     const getFileName = async () => {
         try {
             const response = await DeCuongAPI.getFileName(maUser);
@@ -150,6 +161,7 @@ const DropFileInput = props => {
     useEffect(() => {
         getHanChot();
         getTGConLai();
+        getThoiGianNop();
         getFileName();
         downloadFileSV();
     },[]);
@@ -186,7 +198,7 @@ const DropFileInput = props => {
                             </tr>
                             <tr style={{ width: '200px', height: '50px', backgroundColor: '#EEEEEE' }}>
                                 <td><b>Sửa đổi lần cuối</b></td>
-                                <td>.................</td>
+                                <td>{thoigianNop}</td>
                             </tr>
                             <tr style={{ width: '200px', height: '50px', backgroundColor: '#FFFFFF' }}>
                                 <td><b>File bài tập nộp</b></td>

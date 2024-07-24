@@ -1,4 +1,5 @@
 import UsersIcon from '@heroicons/react/24/outline/UsersIcon'
+// import UserIcon from ' @heroicons/react/24/outline/UserIcon'
 import CheckcircleIcon from '@heroicons/react/24/outline/CheckCircleIcon'
 import BookOpen from '@heroicons/react/24/outline/BookOpenIcon'
 import Cook6 from '@heroicons/react/24/outline/Cog6ToothIcon'
@@ -99,7 +100,7 @@ const routes = [
       {
         path: '/app/danhsachDeCuong',
         icon: <BookOpenIcon className={iconClasses}/>,
-        name:'Duyệt đề cuong',
+        name:'Duyệt đề cương',
         role: ["HDKHOAHOC"],
       },
       {
@@ -107,6 +108,12 @@ const routes = [
         icon:<BookOpenIcon className={iconClasses}/>,
         name:"Phân công GV chấm ĐC",
         role: ["HDKHOAHOC"],
+      },
+      {
+        path: '/app/thongtincanhanSV', // url
+        icon: <UserCircle className={iconClasses}/>, // icon component
+        name: 'Thông tin cá nhân', // name that appear in Sidebar
+        role: ["SINHVIEN"],
       }
       
 ]

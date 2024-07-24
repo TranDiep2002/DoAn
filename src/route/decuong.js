@@ -69,6 +69,9 @@ const DeCuongAPI =  {
     },
     themGiangVienChamDiem(body){
         return api.put('/themGiangVienChamDiem',body)
+    },
+    getThoiGianNop(maSV){
+        return api.get(`getThoiGianNop/${maSV}`)
     }
 
 }

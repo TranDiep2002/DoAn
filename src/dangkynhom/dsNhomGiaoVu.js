@@ -167,7 +167,7 @@ const DanhSachNhomGiaoVu = () => {
                                             )}
                                         
                                             {!approvalStatus[nhom.tenDeTai] && (
-                                                <button className='btn btn-warning' style={{ width: '80px',marginLeft:'5px' }} onClick={() => updateTrangThaiHuy(nhom.maGV, nhom.tenDeTai, nhom.moTaDeTai)}>Hủy</button>
+                                                <button className='btn btn-warning' style={{ width: '80px',marginLeft:'5px' }} onClick={() => updateTrangThaiHuy(nhom.maGV, nhom.tenDeTai, nhom.moTaDeTai)}>Không duyệt</button>
                                             )}
 
                                         </td>

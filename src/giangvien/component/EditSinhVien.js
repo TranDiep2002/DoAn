@@ -64,7 +64,7 @@ function EditGiangVien({ id, closeModal }) {
     };
 
     const validateForm = () => {
-        if (!giangvien.maUser || !giangvien.fullName || !giangvien.ngaySinh || !giangvien.gioiTinh || !giangvien.passWord || !giangvien.email ) {
+        if (!giangvien.maGV || !giangvien.hoTen  || !giangvien.email || !giangvien.soDT || !giangvien.tenBoMon ) {
             setErrorMessage("Vui lòng điền đầy đủ các trường.");
             return false;
         }
